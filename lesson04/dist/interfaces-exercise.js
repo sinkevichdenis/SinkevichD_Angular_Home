@@ -1,42 +1,31 @@
+"use strict";
 // Please, create and add correct interface for the person
-
-interface PersonType {
-    firstName: string,
-    lastName?: string,
-    hobbies?: string[],
-    greet(name: string): void
-}
-
-function greet(person: PersonType) {
+function greet(person) {
     console.log("Hello, " + person.firstName);
 }
-
-function changeName(person: PersonType) {
+function changeName(person) {
     person.firstName = "Anna";
 }
-
-const person: PersonType = {
+var person = {
     firstName: "John",
     hobbies: ["Cooking", "Sports"],
-    greet(lastName) {
+    greet: function (lastName) {
         console.log("Hi, I am " + this.firstName + " " + lastName);
     }
 };
-
 changeName(person);
 greet(person);
 person.greet("Anything");
-
-class Person implements PersonType{
-    firstName: string;
-    lastName: string;
-
-    greet(lastName: string) {
+var Person = /** @class */ (function () {
+    function Person() {
+    }
+    Person.prototype.greet = function (lastName) {
         console.log("Hi, I am " + this.firstName + " " + lastName);
     };
-}
-
-const myPerson  = new Person();
+    ;
+    return Person;
+}());
+var myPerson = new Person();
 myPerson.firstName = 'Doe';
 myPerson.lastName = "Anything";
 greet(myPerson);
