@@ -1,9 +1,8 @@
-<h3>Task 03</h3>
 <div>
   <button
     (click) = "toggleDisplay()"
-    (click) = "addLog()" >
-    Show Details
+    (click) = "addLog()"
+    [innerHTML] = "isShowed ? 'Hide details' : 'Show details'">
   </button>
   <p
     class="details"
