@@ -6,6 +6,7 @@ import { AppComponent } from './components/app/app.component';
 import { SuccessAlertComponent } from './components/success-alert/success-alert.component';
 import { WarningAlertComponent } from './components/warning-alert/warning-alert.component';
 import { FormComponent } from './components/form/form.component';
+import { Task03Component } from './components/task03/task03.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { FormComponent } from './components/form/form.component';
     SuccessAlertComponent,
     WarningAlertComponent,
     FormComponent,
+    Task03Component,
   ],
   imports: [
     BrowserModule,

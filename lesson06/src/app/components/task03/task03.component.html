@@ -1,0 +1,27 @@
+<h3>Task 03</h3>
+<div>
+  <button
+    (click) = "toggleDisplay()"
+    (click) = "addLog()" >
+    Show Details
+  </button>
+  <p
+    class="details"
+    [ngStyle] = "{visibility: (isShowed) ?  'visible' : 'hidden'}">
+    Now you can see something amazing and interesting!
+  </p>
+  <div *ngIf = "logs.length>0">
+    <header>Click's logs</header>
+    <ol>
+      <li
+        class="logs"
+        *ngFor = "let log of logs; let i = index">
+        <span
+          [ngStyle]= "{background: (i >= 4) ?' blue' : 'white' }"
+          [ngClass] = "{colored: i >= 4 }">
+          {{log | date:"medium"}}
+        </span>
+      </li>
+    </ol>
+  </div>
+</div>
