@@ -8,12 +8,6 @@ import { Component } from '@angular/core';
 export class FormComponent {
   userName: string = '';
 
-  constructor() { }
-
-  onInput(event) {
-    console.log(this.userName);
-  }
-
   clearInput() {
     this.userName = '';
   }

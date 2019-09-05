@@ -1,8 +1,7 @@
 <form>
   <input
     name="inputUserName"
-    [(ngModel)]="userName"
-    (input) = "onInput($event)">
+    [(ngModel)]="userName">
   <button
     [disabled]= "userName.length <= 0"
     (click) = "clearInput()" >
