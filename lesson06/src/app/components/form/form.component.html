@@ -1,0 +1,12 @@
+<form>
+  <input
+    name="inputUserName"
+    [(ngModel)]="userName"
+    (input) = "onInput($event)">
+  <button
+    [disabled]= "userName.length <= 0"
+    (click) = "clearInput()" >
+    Clear
+  </button>
+  <p class="text"> {{userName}}</p>
+</form>
