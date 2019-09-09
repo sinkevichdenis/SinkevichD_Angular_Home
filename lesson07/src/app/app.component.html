@@ -2,14 +2,13 @@
   (resultChanged)="resultHasChanged($event)"
   (timerStopped)="timerHasStopped($event)">
 </app-timer-control>
-<ng-template ngFor let-item [ngForOf]="dataArr">
-  <div *ngIf="item % 2;  then odd else even"></div>
-  <ng-template #odd>
+<ng-container *ngFor="let item of dataArr">
+  <ng-template [ngIf]="item % 2" [ngIfElse]="even">
     <app-odd [data]="item"></app-odd>
   </ng-template>
   <ng-template #even>
     <app-even [data]="item"></app-even>
   </ng-template>
-</ng-template>
+</ng-container>
 
 
