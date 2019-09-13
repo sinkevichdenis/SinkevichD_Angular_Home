@@ -9,6 +9,11 @@ export class Task03Component {
   logs: number[] = [];
   isShowed:boolean = false;
 
+  onClick() {
+    this.toggleDisplay();
+    this.addLog();
+  }
+
   toggleDisplay() {
     this.isShowed = !this.isShowed;
   }

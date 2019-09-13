@@ -1,6 +1,8 @@
 about.txt
 .idea/
 classLesson/
-lesson03/
-lesson04/
 TSexamples/
+lesson04/node_modules/
+lesson06/node_modules/
+lesson06/dist/
+lesson03/node_modules/
