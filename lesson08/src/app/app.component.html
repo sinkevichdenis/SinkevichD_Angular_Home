@@ -8,6 +8,6 @@
 <h3>Disactived Users list:</h3>
 <ul>
   <li *ngFor="let userD of disactiveUsersList">
-    <app-active-users (changedStatusByElem)="changeStatus($event)" [user]="userD"></app-active-users>
+    <app-inactive-users (changedStatusByElem)="changeStatus($event)" [user]="userD"></app-inactive-users>
   </li>
 </ul>

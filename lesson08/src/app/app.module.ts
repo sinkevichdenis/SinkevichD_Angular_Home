@@ -4,8 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ActiveUsersComponent } from './components/active-users/active-users.component';
 import { InactiveUsersComponent } from './components/inactive-users/inactive-users.component';
-import { UsersService }  from "./services/users.service";
-import { CounterService } from "./services/counter.service";
 
 @NgModule({
   declarations: [
@@ -16,10 +14,7 @@ import { CounterService } from "./services/counter.service";
   imports: [
     BrowserModule
   ],
-  providers: [
-    UsersService,
-    CounterService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

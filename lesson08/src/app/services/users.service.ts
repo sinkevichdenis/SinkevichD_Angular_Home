@@ -46,10 +46,6 @@ export class UsersService {
     return this.usersList.filter(item => !item.status);
   }
 
-  getUsersList(): User[] {
-    return this.usersList;
-  }
-
   changeStatus (id: number): void {
     this.usersList.forEach(item => {
       if (item.id === id) {
