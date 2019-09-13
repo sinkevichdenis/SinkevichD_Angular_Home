@@ -12,6 +12,8 @@ export class CounterService {
 
   count(msg?: string) {
       this.counter++;
-      console.log(`${this.counter} ${msg}`)
+      if (msg !== undefined) {
+        console.log(`${this.counter} ${msg}`)
+      }
   }
 }
