@@ -1,4 +1,4 @@
-about.txt
+about.txt 
 .idea/
 classLesson/
 TSexamples/
@@ -49,3 +49,7 @@ lesson08/src/main.ts
 lesson08/src/favicon.ico
 lesson08/src/styles.css
 lesson08/src/index.html
+
+lesson07/tsconfig.json
+lesson07/package.json
+lesson07/package-lock.json
