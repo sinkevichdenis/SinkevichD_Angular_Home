@@ -1,41 +1,52 @@
 <form #form="ngForm">
-  <div>
-    Name:
-    <input
-      type="text"
-      name="username"
-      #username="ngModel"
-      placeholder="Enter your name..."
-      [ngModel]="user?.username"
-      required>
-    <button (click)="getName()" >Generate name</button>
-    <p *ngIf="username.errors?.required && username.dirty" class="error">
-      User name is required
-    </p>
-  </div>
+  <div ngModelGroup="userData" #userData="ngModelGroup">
+    <div>
+      Name:
+      <input
+        type="text"
+        name="username"
+        #username="ngModel"
+        placeholder="Enter your name..."
+        [ngModel]="user.userData?.username"
+        required>
+      <button (click)="getName()" >Generate name</button>
+      <p *ngIf="
+        username.errors?.required
+        && username.dirty"
+        class="error">
+        User name is required
+      </p>
+    </div>
 
-  <div>
-    Email:
-    <input
-      type="email"
-      name="email"
-      #email="ngModel"
-      [ngModel]="user?.email"
-      required
-      pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
-    <p *ngIf="
+    <div>
+      Email:
+      <input
+        type="email"
+        name="email"
+        #email="ngModel"
+        [ngModel]="user?.email"
+        required
+        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+      <p *ngIf="
       email.errors?.required
       && email.dirty"
-      class="error">
-      Email is required
-    </p>
-    <p *ngIf="
+         class="error">
+        Email is required
+      </p>
+      <p *ngIf="
       email.invalid
       && email.dirty
       && !email.errors?.required"
-      class="error">
-      Email is wrong
-    </p>
+         class="error">
+        Email is wrong
+      </p>
+    </div>
+
+    <p *ngIf="userData.invalid
+    && email.dirty
+    && username.dirty"
+       class="error">UserData is invalid.</p>
+
   </div>
 
   <div>
