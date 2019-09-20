@@ -48,7 +48,6 @@ export class FormComponent implements OnInit{
   }
 
   getName(): void {
-    console.log('test');
     this.user.username = this.nameGeneration.getRandomName();
   }
 
