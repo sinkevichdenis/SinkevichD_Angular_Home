@@ -7,7 +7,7 @@
         name="username"
         #username="ngModel"
         placeholder="Enter your name..."
-        [ngModel]="user.userData?.username"
+        [ngModel]="user?.username"
         required>
       <button (click)="getName()" >Generate name</button>
       <p *ngIf="

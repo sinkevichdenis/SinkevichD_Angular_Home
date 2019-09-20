@@ -1,11 +1,7 @@
 interface User{
-  userData: UserName,
+  username: string,
+  email: string,
   secret: string,
   questionAnswer: string,
   gender: string
-}
-
-interface UserName {
-  username: string,
-  email: string,
 }

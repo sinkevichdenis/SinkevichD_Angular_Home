@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import {FormGroup, NgForm} from '@angular/forms';
 import { NameGenerationService } from "../../services/name-generation.service";
 
 @Component({
@@ -21,10 +21,8 @@ export class FormComponent implements OnInit{
 
   ngOnInit() {
     this.user = {
-      userData: {
-        username: '',
-        email: '',
-      },
+      username: '',
+      email: '',
       secret: '',
       questionAnswer: '',
       gender: ''
@@ -51,11 +49,11 @@ export class FormComponent implements OnInit{
 
   getName(): void {
     console.log('test');
-    this.user.userData.username = this.nameGeneration.getRandomName();
+    this.user.username = this.nameGeneration.getRandomName();
   }
 
-  onSubmit(form: FormGroup, value: User): void {
-    this.formWasSent.emit(JSON.stringify(value));
+  onSubmit(form: NgForm): void {
+    this.formWasSent.emit(JSON.stringify(form.value));
     form.reset();
   }
 
