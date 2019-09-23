@@ -73,3 +73,6 @@ lesson09/tsconfig.spec.json
 lesson09/tsconfig.json
 lesson09/tslint.json
 lesson09/src/polyfills.ts
+lesson07/node_modules/
+lesson08/node_modules/
+lesson09/node_modules/
