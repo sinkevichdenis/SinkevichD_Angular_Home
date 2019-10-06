@@ -1,1 +1,0 @@
-type ResultTimer = number | null;
