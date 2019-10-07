@@ -1,0 +1,10 @@
+<div class="timer-container">
+  <div>
+    <span class="timer"
+          [innerHTML]= "(resultTimer !== null) ? resultTimer : 'Timer ready for start'" ></span>
+  </div>
+  <div>
+    <button class="start" (click)="startTimer()">Start</button>
+    <button class="stop" (click)="stopTimer()">Stop</button>
+  </div>
+</div>
