@@ -1,0 +1,16 @@
+input.ng-touched.ng-invalid {
+  border:solid red 2px;
+}
+input.ng-touched.ng-valid {
+  border:solid green 2px;
+}
+div {
+  margin: 1em;
+}
+label {
+  font-weight: bold;
+}
+p.alert {
+  font-size: .8em;
+  color: red;
+}

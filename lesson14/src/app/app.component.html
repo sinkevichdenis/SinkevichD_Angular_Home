@@ -1,0 +1,49 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label> Project name:
+      <input name="name" formControlName="projectName">
+    </label>
+    <ng-container *ngIf="projectName.touched">
+      <p class="alert"
+        *ngIf="projectName.errors?.required">
+        Поле не должно быть пустым.
+      </p>
+      <p class="alert"
+        *ngIf="projectName.errors?.wordExceptionSync">
+        Такое слово нельзя использовать (синхронная проверка)
+      </p>
+      <p class="alert"
+        *ngIf="projectName.errors?.wordExceptionAsync">
+        Такое слово нельзя использовать (асинхронная проверка)
+      </p>
+    </ng-container>
+  </div>
+
+  <div>
+    <label> Email:
+      <input name="mail" formControlName="mail">
+    </label>
+    <p class="alert"
+      *ngIf="myForm.controls['mail'].invalid && myForm.controls['mail'].touched">
+      Не верный емейл
+    </p>
+  </div>
+
+  <div>
+    <label> Select options:
+      <select name="select" formControlName="projectStatusDropdown">
+        <option value="stable"> Stable
+        <option value="critical"> Critical
+        <option value="finished"> Finished
+      </select>  
+    </label>
+  </div>
+
+  <div>
+    <button type="submit" [disabled]="myForm.invalid">
+        Отправить
+    </button>
+  </div>
+</form>
+
+{{myForm.value | json}}
