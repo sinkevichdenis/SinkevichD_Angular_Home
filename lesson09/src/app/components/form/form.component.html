@@ -1,0 +1,104 @@
+<form #form="ngForm">
+  <div ngModelGroup="userData" #userData="ngModelGroup">
+    <div>
+      Name:
+      <input
+        type="text"
+        name="username"
+        #username="ngModel"
+        placeholder="Enter your name..."
+        [ngModel]="user?.username"
+        required>
+      <button (click)="getName()" >Generate name</button>
+      <p *ngIf="
+        username.errors?.required
+        && username.dirty"
+        class="error">
+        User name is required
+      </p>
+    </div>
+
+    <div>
+      Email:
+      <input
+        type="email"
+        name="email"
+        #email="ngModel"
+        [ngModel]="user?.email"
+        required
+        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+      <p *ngIf="
+      email.errors?.required
+      && email.dirty"
+         class="error">
+        Email is required
+      </p>
+      <p *ngIf="
+      email.invalid
+      && email.dirty
+      && !email.errors?.required"
+         class="error">
+        Email is wrong
+      </p>
+    </div>
+
+    <p *ngIf="userData.invalid
+    && email.dirty
+    && username.dirty"
+       class="error">UserData is invalid.</p>
+
+  </div>
+
+  <div>
+    Secret Question
+    <select
+      name="secret"
+      #secret="ngModel"
+      [ngModel]="user?.secret"
+      required>
+      <option
+        *ngFor="let item of questions"
+        [value]="item.key"
+        [selected]="item.key === user?.secret">
+        {{item.question}}
+      </option>
+    </select>
+
+    <div *ngIf="secret.value">
+      <textarea
+        name="questionAnswer"
+        #questionAnswer="ngModel"
+        placeholder="Enter your answer..."
+        [ngModel]="user?.questionAnswer"
+        required>
+      </textarea>
+      <p *ngIf="questionAnswer.value">Your answer: {{questionAnswer.value}}</p>
+      <p *ngIf="questionAnswer.errors?.required && questionAnswer.dirty" class="error">
+        Secret question without answer
+      </p>
+    </div>
+  </div>
+
+  <div>
+    <label *ngFor="let item of genders">
+      <input
+        type="radio"
+        name="gender"
+        [value]="item"
+        [ngModel]="user?.gender"
+        required>
+      {{item}}
+    </label>
+  </div>
+
+  <button
+    type="submit"
+    (click)="onSubmit(form, form.value)"
+    [disabled]="form.invalid">
+    Register user
+  </button>
+</form>
+
+<div>
+  {{form.value| json}}
+</div>
