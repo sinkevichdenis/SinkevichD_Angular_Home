@@ -1,0 +1,20 @@
+<form #form="ngForm">
+  <input ngModel
+    id="input"
+    type="text"
+    name="text"
+    #text="ngModel">
+  <div>
+    <button 
+      class="add" 
+      id="addBtn"
+      [disabled] = true>
+    Add log</button>
+    <button 
+      *ngIf= "text.value" 
+      class="clear" 
+      id="clearBtn"
+      (click) = "clearLog()">
+    Clear</button>
+  </div> 
+</form>
