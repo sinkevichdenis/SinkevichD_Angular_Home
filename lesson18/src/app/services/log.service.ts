@@ -2,32 +2,31 @@ import { Injectable } from '@angular/core';
 
 import { Observable, of, BehaviorSubject } from 'rxjs';
 
-import { Log } from '../models/Log';
+import { Log } from '../models/log.interface';
+import { FbService } from "./fb.service";
+import {map} from "rxjs/internal/operators";
 
 @Injectable()
 export class LogService {
   logs: Log[];
 
+  // не понимаю смысла этих потоков в контексте работы с базой firebase
   private logSource = new BehaviorSubject<Log>({id: null, text: null, date: null});
   selectedLog = this.logSource.asObservable();
 
   private stateSource = new BehaviorSubject<boolean>(true);
   stateClear = this.stateSource.asObservable();
 
-  constructor() {
+  constructor(private fb: FbService) {
     this.logs = [];
   }
 
   getLogs(): Observable<Log[]> {
-    if(localStorage.getItem('logs') === null) {
-      this.logs = [];
-    } else {
-      this.logs = JSON.parse(localStorage.getItem('logs'));
-    }
-
-    return of(this.logs.sort((a, b) => {
-      return b.date = a.date;
-    }));
+    return this.fb.getLogs().pipe(
+      map(logs => {
+        return this.logs = [...logs]
+      })
+    )
   }
 
   setFormLog(log: Log) {
@@ -37,8 +36,8 @@ export class LogService {
   addLog(log: Log) {
     this.logs.unshift(log);
 
-    // Add to local storage
-    localStorage.setItem('logs', JSON.stringify(this.logs));
+    // Add to firebase storage
+    this.fb.newLog(log);
   }
 
   updateLog(log: Log) {
@@ -49,8 +48,8 @@ export class LogService {
     });
     this.logs.unshift(log);
 
-    // Update local storage
-    localStorage.setItem('logs', JSON.stringify(this.logs));
+    // Update firebase storage
+      this.fb.updateLog(log);
   }
 
   deleteLog(log: Log) {
@@ -60,8 +59,8 @@ export class LogService {
       }
     });
 
-    // Delete from local storage
-    localStorage.setItem('logs', JSON.stringify(this.logs));
+    // Delete from firebase storage
+      this.fb.deleteLog(log);
   }
 
   clearState() {

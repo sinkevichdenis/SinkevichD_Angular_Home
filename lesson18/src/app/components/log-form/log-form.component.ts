@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
 import { LogService } from '../../services/log.service';
-
-import { Log } from '../../models/Log';
 
 @Component({
   selector: 'app-log-form',
@@ -36,7 +33,7 @@ export class LogFormComponent implements OnInit {
       const newLog = {
         id: this.generateId(),
         text: this.text,
-        date: new Date()
+        date: Date.now()
       }
       // Add log
       this.logService.addLog(newLog);
@@ -45,7 +42,7 @@ export class LogFormComponent implements OnInit {
       const updLog = {
         id: this.id,
         text: this.text,
-        date: new Date()
+        date: Date.now()
       }
       // Update log
       this.logService.updateLog(updLog);
