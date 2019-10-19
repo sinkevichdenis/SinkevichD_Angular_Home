@@ -11,11 +11,12 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LogFormComponent } from './components/log-form/log-form.component';
 import { LogsComponent } from './components/logs/logs.component';
-import { LogService } from './services/log.service';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AuthService } from "./services/auth.service";
+import { LogService } from "./services/log.service";
 
 @NgModule({
   imports: [ 
@@ -37,9 +38,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     DashboardComponent
   ],
   providers: [
-    LogService
+    LogService,
+    AuthService
   ],
-  bootstrap: [ 
+  bootstrap: [
     AppComponent
   ]
 })
