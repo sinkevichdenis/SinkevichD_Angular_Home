@@ -13,7 +13,6 @@ import { LogFormComponent } from './components/log-form/log-form.component';
 import { LogsComponent } from './components/logs/logs.component';
 import { LogService } from './services/log.service';
 import { environment } from '../environments/environment';
-import { AuthFormComponent } from './components/auth-form/auth-form.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -33,7 +32,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     NavbarComponent,
     LogFormComponent,
     LogsComponent,
-    AuthFormComponent,
     LoginComponent,
     RegisterComponent,
     DashboardComponent

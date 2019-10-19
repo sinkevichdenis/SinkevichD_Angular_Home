@@ -6,8 +6,7 @@ import { Log } from '../../models/Log';
 
 @Component({
   selector: 'app-log-form',
-  templateUrl: './log-form.component.html',
-  styleUrls: ['./log-form.component.css']
+  templateUrl: './log-form.component.html'
 })
 export class LogFormComponent implements OnInit {
   id: string;
