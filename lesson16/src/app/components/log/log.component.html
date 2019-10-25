@@ -1,0 +1,5 @@
+<div class="wrapper">
+  <span class="name" (click)="edit(log)">{{log.text}}</span>
+  <span>{{log.date | date: 'short'}}</span>
+  <div class="delete" (click)= "delete(log.id)">X</div>
+</div>

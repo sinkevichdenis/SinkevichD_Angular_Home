@@ -1,0 +1,33 @@
+.wrapper {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: .5em;
+  margin-top: .5em;
+  border: 1px solid grey
+}
+
+.wrapper:hover {
+  background-color: rgba(100, 100, 100, .2)
+}
+
+.name {
+  color: blue;
+  cursor: pointer;
+}
+
+.delete{
+  border: 1px solid black;
+  padding: .1em .4em;
+  font-family: Arial;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.delete:hover {
+  background-color: rgba(200, 0, 0, .8)
+}
+.delete:active {
+  box-shadow: 0 0 3px black; 
+}
+

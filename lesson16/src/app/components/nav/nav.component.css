@@ -1,0 +1,26 @@
+header {
+  width: 100%;
+  background-color: #1a1a1a;
+}
+
+nav{
+  max-width: 30em;
+  margin: 0 auto;
+  padding: 1em;
+  background-color: #313030;
+}
+
+a {
+  font-size: 1.5em;
+  color: white;
+  text-decoration: none;
+  transition: .1s;
+}
+
+a:hover {
+  color: grey;
+}
+
+a:active {
+  color: red;
+}

@@ -1,0 +1,17 @@
+<app-nav></app-nav>
+<div class="container">
+  <app-form 
+    (logHasAdded)= "addLog($event)">
+  </app-form>
+  <ng-template 
+    [ngIf]="!logs.length" 
+    [ngIfElse]="log"> 
+    <p> There are no logs in the system.</p>
+  </ng-template>
+  <ng-template #log>
+    <app-log (logHasDeleted)= "deleteLog($event)" 
+      *ngFor = "let x of logs" 
+      [log]='x'>
+    </app-log>
+  </ng-template>
+</div>
