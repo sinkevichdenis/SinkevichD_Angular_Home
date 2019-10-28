@@ -5,6 +5,7 @@ import { UserComponent } from './user.component';
 import { UserService } from "./user.service";
 import { DataService } from "../shared/data.service";
 import {By} from "@angular/platform-browser";
+import {inject} from "@angular/core";
 
 const mockUser = {name: 'Name'};
 
@@ -18,11 +19,13 @@ describe('Component: User', () => {
   let fixture;
   let app;
   let userService;
+  let dataService;
 
   beforeEach(() => {
     const bed = TestBed.configureTestingModule({
       declarations: [UserComponent],
       providers: [
+        DataService,
         { provide: UserService, useClass: MockService }
       ]
     });
@@ -60,7 +63,12 @@ describe('Component: User', () => {
     // by using whenStable()
   }));
 
-  it('should fetch data successfully if called asynchronously', fakeAsync(() => {
-    // by using tick()
+  it('should fetch data successfully if called asynchronously', fakeAsync((dataService: DataService) => {
+
+    dataService.getDetails().then(result => {
+      expect(result).toBe('Data');
+    });
+    tick(5000);
+
   }));
 });
